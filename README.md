@@ -6,7 +6,7 @@ cd notes
 python -m venv venv
 source venv/bin/activate
 
-# For funning server use
+# For running server use
 ./app.py runserver --help
 
 # For using posgres use docker-compose what place in docker directory
