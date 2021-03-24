@@ -1,4 +1,4 @@
-#!/bin/env python3.9
+#!/bin/env python3
 from flask import Flask
 
 from flask_script import Manager, Command
