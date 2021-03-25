@@ -17,7 +17,7 @@ cd docker & docker-compose up -d cd ../
 
 # cli client place in './client'
 cd client
-# ./client.py command print help
+# If you run ./client.py you can see help info
 ./client.py <command> <args>
 
 # For loading test use:
