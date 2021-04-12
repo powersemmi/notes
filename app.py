@@ -1,6 +1,7 @@
 #!/bin/env python3
 from flask import Flask
 
+from flask_cors import CORS
 from flask_script import Manager, Command
 from flask_migrate import Migrate, MigrateCommand
 
@@ -11,6 +12,7 @@ from config import Config, make_celery
 
 app = Flask(__name__, template_folder='app/templates')
 app.config.from_object(Config)
+CORS(app)
 
 celery = make_celery(app)
 app.celery = celery

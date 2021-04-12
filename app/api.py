@@ -5,6 +5,7 @@ from flask import (
     jsonify,
     request
 )
+
 from flask.wrappers import JSONMixin
 
 from app.shema.models import Notes, db
@@ -12,6 +13,7 @@ from app.shema.models import Notes, db
 from sqlalchemy.sql import text
 
 api = Blueprint('api', __name__)
+
 
 @api.route('/', methods=['GET'])
 def index():
