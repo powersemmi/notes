@@ -2,7 +2,7 @@
 /* eslint-disable react/jsx-filename-extension */
 import React from 'react';
 import {
-  AppBar, Container, Toolbar, makeStyles, Typography, Paper, Button, Grid, Fab,
+  AppBar, Container, Toolbar, makeStyles, Typography, Paper, Button, Grid, Fab, Box,
 } from '@material-ui/core';
 import AddIcon from '@material-ui/icons/Add';
 // import MenuIcon from '@material-ui/icons/Menu';
@@ -61,15 +61,17 @@ const Main = () => {
         <Typography variant="h2" align="center" color="textprimary" gutterBottom>Note Editor</Typography>
       </Container>
       <Grid container maxWidth="md" justify="center" spacing={1} alignItems="center">
-        <Grid item xs={12} lg={1} justify="center">
-          <Fab color="primary" aria-label="add">
-            <AddIcon />
-          </Fab>
+        <Grid item xs={12} lg={1}>
+          <Box textAlign="center">
+            <Fab color="primary" aria-label="add">
+              <AddIcon />
+            </Fab>
+          </Box>
         </Grid>
-        <Grid item xs={12} lg={10} justify="center">
+        <Grid item xs={12} lg={9}>
           <AllNotes />
         </Grid>
-        <Grid item xs={12} lg={1}>
+        <Grid item xs={12} lg={2}>
           <Button fullWidth="true" variant="contained" style={{ height: 60 }}>Search</Button>
         </Grid>
       </Grid>
