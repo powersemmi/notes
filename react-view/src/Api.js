@@ -1,14 +1,10 @@
-/* eslint-disable react/jsx-filename-extension */
 import React from 'react';
-import { Button } from '@material-ui/core';
+import {
+  TextField,
+} from '@material-ui/core';
+import Autocomplete from '@material-ui/lab/Autocomplete';
 
-const Search = () => (
-  <Button color="primary">
-    Are you didn use your code.
-  </Button>
-);
-
-class GetNotes extends React.Component {
+class AllNotes extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -43,30 +39,41 @@ class GetNotes extends React.Component {
     const { error, isLoaded, items } = this.state;
     if (error) {
       return (
+        // eslint-disable-next-line react/jsx-filename-extension
         <div>
-          Ошибка:
+          Error:
           {error.message}
           {' '}
           {items}
         </div>
       );
     } if (!isLoaded) {
-      return (<div>Загрузка...</div>);
+      return (<div>Loading...</div>);
     }
-
-    const listItems = items.map((item) => <li key={item.id}>{item.note}</li>);
 
     return (
       <div className="GetNotes">
         <div className="shopping-list">
-          <ul>
-            {listItems}
-          </ul>
-          {Search()}
+          <Autocomplete
+            freeSolo
+            id="free-solo-2-demo"
+            disableClearable
+            options={items.map((option) => option.note)}
+            renderInput={(params) => (
+              <TextField
+        // eslint-disable-next-line react/jsx-props-no-spreading
+                {...params}
+                label="Select note"
+                margin="normal"
+                variant="outlined"
+                InputProps={{ ...params.InputProps, type: 'search' }}
+              />
+            )}
+          />
         </div>
       </div>
     );
   }
 }
 
-export default GetNotes;
+export default AllNotes;

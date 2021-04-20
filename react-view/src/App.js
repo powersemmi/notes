@@ -1,11 +1,13 @@
+/* eslint-disable max-len */
 /* eslint-disable react/jsx-filename-extension */
 import React from 'react';
 import {
-  AppBar, Container, Toolbar, makeStyles, Typography,
+  AppBar, Container, Toolbar, makeStyles, Typography, Paper, Button, Grid, Fab,
 } from '@material-ui/core';
+import AddIcon from '@material-ui/icons/Add';
 // import MenuIcon from '@material-ui/icons/Menu';
 
-import GetNotes from './Api';
+import AllNotes from './Api';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -29,13 +31,20 @@ const useStyles = makeStyles((theme) => ({
     position: 'relative',
     padding: theme.spacing(3),
   },
+  mainContent: {
+    color: '#000000',
+    display: 'block',
+    marginTop: theme.spacing(20),
+    padding: theme.spacing(1),
+  },
+  toolbar: theme.mixins.toolbar,
 }));
 
 const AppHeader = () => {
   const classes = useStyles();
   return (
-    <AppBar position="fixed">
-      <Container fixed>
+    <AppBar className={classes.toolbar}>
+      <Container>
         <Toolbar>
           <Typography variant="h6" className={classes.title}>Shopping List</Typography>
         </Toolbar>
@@ -47,20 +56,32 @@ const AppHeader = () => {
 const Main = () => {
   const classes = useStyles();
   return (
-    <main className={classes.mainFeturesPost}>
-      <div className={classes.mainContent}>
-        <Container maxWidth="sm">
-          <Typography variant="h2" align="center" color="textprimary" gutterBottom>Shopping List</Typography>
-        </Container>
-        <GetNotes />
-      </div>
-    </main>
+    <Paper className={classes.mainContent}>
+      <Container maxWidth="sm">
+        <Typography variant="h2" align="center" color="textprimary" gutterBottom>Note Editor</Typography>
+      </Container>
+      <Grid container maxWidth="md" justify="center" spacing={1} alignItems="center">
+        <Grid item xs={12} lg={1} justify="center">
+          <Fab color="primary" aria-label="add">
+            <AddIcon />
+          </Fab>
+        </Grid>
+        <Grid item xs={12} lg={10} justify="center">
+          <AllNotes />
+        </Grid>
+        <Grid item xs={12} lg={1}>
+          <Button fullWidth="true" variant="contained" style={{ height: 60 }}>Search</Button>
+        </Grid>
+      </Grid>
+    </Paper>
   );
 };
 const App = () => (
   <>
-    <AppHeader />
-    <Main />
+    <Container>
+      <AppHeader maxWidth="lg" />
+      <Main />
+    </Container>
   </>
 );
 
