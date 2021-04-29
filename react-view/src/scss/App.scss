@@ -1,0 +1,29 @@
+.root
+{
+    flex-grow: 1;
+}
+.menuButton {
+    margin-right: theme.spacing(1);
+  }
+.title {
+    flex-grow: 1;
+  }
+.mainFeturesPost {
+    position: 'relative';
+    color:white;
+    margin-bottom: theme.spacing(4);
+    background-size: 'cover';
+    background-repeat: 'no-repeat';
+    background-position: 'center';
+  }
+.mainFeturesPostContent {
+    position: 'relative';
+    padding: theme.spacing(3);
+  }
+.mainContent{
+    color: '#000000';
+    display: 'block';
+    // marginTop: theme.spacing(20);
+    // padding: theme.spacing(1);
+  }
+// .toolbar {theme.mixins.toolbar;

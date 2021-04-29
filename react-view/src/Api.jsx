@@ -69,6 +69,7 @@ class AllNotes extends React.Component {
                 InputProps={{ ...params.InputProps, type: 'search' }}
               />
             )}
+            onChange={this.onChange}
           />
         </div>
       </div>
@@ -76,4 +77,9 @@ class AllNotes extends React.Component {
   }
 }
 
-export default AllNotes;
+const SearchFunc = ({ query }) => {
+  fetch(`http://localhost:5000/notes/${query}`)
+    .then((res) => res.json());
+};
+
+export { AllNotes, SearchFunc };

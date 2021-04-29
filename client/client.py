@@ -13,7 +13,8 @@ def get_note(query=None):
 
 def new_note(note, description):
     """Insert new notes."""
-    print(req.post(f'http://{host}/notes', json={'note': note, 'description': description}).status_code)
+    res = req.post(f'http://{host}/notes', json={'note': note, 'description': description})
+    print(res.json(), res.status_code)
 
 def update_note(note_id, note, description):
     """Update note by id"""
