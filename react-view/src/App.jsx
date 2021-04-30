@@ -1,4 +1,3 @@
-/* eslint-disable react/destructuring-assignment */
 import React from 'react';
 import {
   AppBar, Container, Toolbar, Typography, Paper, Button, Grid, Fab, Box,
@@ -45,26 +44,20 @@ class Main extends React.Component {
   }
 
   onInputchange(event) {
-    // eslint-disable-next-line no-console
     console.log('onInputchange');
-    // eslint-disable-next-line no-console
     console.log(event);
-    // eslint-disable-next-line no-console
     console.log(this.state);
     this.setState({
       [event.query]: event.query,
     });
-    // eslint-disable-next-line no-console
     console.log('onInputchange');
-    // eslint-disable-next-line no-console
     console.log(this.state);
   }
   addNote = (event) => {
     const items = fetch(`http://localhost:5000/notes/${this.state.query}`)
        .then((res) => res.json());
     this.setState({
-       notes: [items.map((option) => (
-      <Note id={option.id} title={option.title} description={option.description} />))],
+       notes: [items.map((option) => (<Note id={option.id} title={option.title} description={option.description} />))],
     });
   }
 
